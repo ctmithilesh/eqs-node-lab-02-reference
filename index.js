@@ -1,10 +1,12 @@
 
 const express = require('express')
 const customer = require('./lib/data/customer')
+const { blockAddNewCustomerRequest } = require('./middlewares')
 const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(blockAddNewCustomerRequest)
 
 app.get('/', (req, res) => {
     res.send({ message: "Welcome to Customer Service Server 1.0" })
@@ -37,6 +39,8 @@ app.get('/customers/all', (req, res) => {
     `)
 
 })
+
+
 app.listen(5000, () => {
     console.log('Server started')
 })

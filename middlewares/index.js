@@ -1,7 +1,8 @@
-const blockAddNewCustomerRequest = (req, res, next ) => {
+const blockAddNewCustomerRequest = (req, res, next) => {
 
 
-    const url = req.url 
+    const url = req.url
+    const method = req.url
     console.log(`
     Intercepted ${req.method} request to ${req.url}
     `
